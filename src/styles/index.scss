@@ -1,0 +1,250 @@
+@import "reset.scss";
+@import "vars.scss";
+@import "framework.scss";
+
+html, body, #root, #app {
+	height: 100%;
+	overflow: hidden;
+}
+
+html {
+	font-size: 20px;
+}
+
+#app {
+	position: relative;
+}
+
+#background {
+	position: fixed;
+	top: 0; left: 0;
+	width: 400%; height: 400%;
+	z-index: -1;
+	background: linear-gradient(135deg, #E4C248 0%, #CE1DD1 25.06%, #483CD2 50.07%, #CE1DD1 75.09%, #E4C248 100%);
+	transition: all 2s cubic-bezier(.14,.75,.14,.91);
+}
+
+/* HEADER */
+
+header {
+	background-color: $darken;
+	height: 100px;
+	padding: 0 $marge*2;
+	@include trans;
+
+	menu, ul {
+		height: 100%;
+		position: relative;
+	}
+
+	ul {
+		display: flex;
+		align-items: center;
+	}
+
+	li {
+		margin-right: $marge*4;
+	}
+
+	a {
+		font-weight: 700;
+		display: block;
+		position: relative;
+		opacity: .75;
+		@include trans;
+
+		&.active {
+			opacity: 1;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.active:before, &:before {
+			content: ">";
+			position: absolute;
+			top: 0;
+			left: -.75rem;
+			transform: translateX(0);
+			opacity: 1;
+		}
+
+		&:before {
+			transform: translateX(-5px);
+			opacity: 0;
+			@include trans;
+		}
+
+		&:hover:before {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+}
+
+#burger {
+
+	position: relative;
+	height: 100px;
+	
+	svg {
+		font-size: 2rem;
+		height: 100%;
+	}
+
+	ul {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	li {
+		font-size: 1.5rem;
+		padding: $marge*2 0;
+	}
+
+}
+
+/* CONTENT */
+.content {
+	padding: $marge*10 $marge*2;
+	height: calc(100% - 100px);
+	overflow-y: auto;
+	@include scrollbars;
+}
+
+.page {
+	height: 100%;
+
+	h1 {
+		margin-bottom: $marge*10;
+	}
+}
+
+/* HOME */
+#home {
+
+	.container, .page {
+		height: 100%;
+	}
+	
+	.page {
+		display: flex;
+		align-items: center;
+	}
+
+}
+
+#home-content {
+	font-weight: 200;
+
+	p {
+		margin-bottom: $marge*3;
+	}
+	
+	#sylvain, #galoustoff {
+		font-size: 5rem;
+		line-height: 1;
+	}
+	
+	#sylvain {
+		font-weight: 900;
+		margin-bottom: 0;
+	}
+	
+	#galoustoff {
+		font-weight: 200;
+	}
+	
+	#job {
+		font-weight: 700;
+		margin-bottom: $marge*5;
+		font-size: 1.75rem;
+	}
+}
+
+/* DEMOS */
+.demo-card {
+	display: flex;
+	position: relative;
+
+	.card-aside {
+
+		display: flex;
+		flex-direction: column;
+		transform: translateX(-100%);
+		position: absolute;
+		top: 0; left: 0;
+
+		svg {
+			font-size: 1.5rem;
+			margin: 0 $marge*2 $marge 0;
+		}
+	}
+	
+
+	.card-header, .card-body {
+		margin-bottom: $marge*2;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: flex-end;
+
+		button, a.button {
+			margin-left: $marge*2;
+		}
+	}
+}
+
+#wp-content {
+	position: relative;
+
+	p {
+		margin-bottom: $marge*2;
+	}
+
+	h2 {
+		margin-bottom: $marge*2;
+	}
+
+	* + h2 {
+		margin: $marge*5 0 $marge*2
+	}
+
+	h3 {
+		margin-bottom: $marge*2;
+	}
+
+	strong {
+		font-weight: 700;
+	}
+
+}
+
+#single-aside {
+	position: absolute;
+	top: 7px; left: 0;
+	padding-right: $marge*2;
+	transform: translateX(-100%);
+	display: flex;
+	flex-direction: column;
+	font-size: 2rem;
+	
+	svg {
+		margin-bottom: $marge*2;
+	}
+}
+
+.wp-block-image {
+	@include dev;
+	margin-bottom: $marge*3;
+	
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+@import "responsive.scss";

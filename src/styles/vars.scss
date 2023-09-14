@@ -1,0 +1,39 @@
+$light: #fff;
+$darken: rgba(black, 20%);
+
+$marge: 8px;
+
+$corner: 4px;
+
+@mixin dev( $color: white, $width: 1px ) {
+    border: $width solid $color;
+}
+
+@mixin trans($speed: .15s) {
+    transition: all $speed ease-out;
+}
+
+@mixin scrollbars(
+    $size: 10px,
+    $foreground-color: rgba(black, .25),
+    $background-color: red) {
+
+    // For Chrome & Safari
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: $corner;
+        background: $foreground-color;
+        
+        &:hover {
+            background: rgba(black, .5);
+        }
+    }
+
+    // Standard version (Firefox only for now)
+    scrollbar-color: $foreground-color $background-color;
+
+}

@@ -1,0 +1,237 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    color: $light;
+}
+
+h1,
+.h1 {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+h2,
+.h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3,
+.h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.2;
+}
+
+p.help {
+    font-size: .9rem;
+    font-weight: 200;
+}
+
+a {
+    color: $light;
+    text-decoration: none;
+}
+
+code {
+    font-style: italic;
+}
+
+.container {
+    max-width: 720px;
+    margin: auto;
+}
+
+/* CARDS */
+.card-list {
+    .card-content {
+        width: 100%;
+    }
+}
+
+.card {
+    margin-bottom: $marge*5;
+}
+
+.card-body {
+    font-weight: 200;
+}
+
+/* BUTTONS */
+.button-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    button,
+    a.button {
+        margin-left: $marge;
+    }
+}
+
+button,
+a.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    font-family: 'Nunito', sans-serif;
+    color: $light;
+    font-size: 1rem;
+    border: none;
+    border-radius: $corner;
+    background-color: $darken;
+    padding: $marge $marge*3;
+    cursor: pointer;
+    @include trans;
+
+    &.icon-before {
+        svg {
+            margin-right: $marge;
+        }
+    }
+
+    &:hover {
+        background-color: rgba($darken, .3);
+    }
+}
+
+/* FORM */
+.form-group-inline {
+    display: flex;
+
+    >.form-group {
+        flex: 1;
+    }
+
+    >.form-group:first-child {
+        margin-right: $marge*2;
+    }
+
+    >.form-group:last-child {
+        margin-left: $marge*2;
+    }
+}
+
+.form-group {
+    margin-bottom: $marge*4;
+    position: relative;
+}
+
+[type="text"],
+textarea {
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: $light;
+    padding: $marge $marge*3;
+    border: none;
+    border-radius: $corner;
+    background-color: rgba(black, .25);
+    @include trans;
+
+    &::placeholder {
+        color: $light;
+    }
+
+    &:focus {
+        outline: none;
+        background-color: $light;
+        color: black;
+    }
+}
+
+textarea {
+    height: 200px;
+}
+
+.validator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        display: block;
+        height: auto;
+    }
+
+    svg {
+        position: absolute;
+        top: $marge*3;
+        right: $marge*3;
+        font-size: 2rem;
+        cursor: pointer;
+        color: $light;
+    }
+}
+
+/* LOADER */
+.loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loader div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 4px solid $light;
+    opacity: 1;
+    border-radius: 50%;
+    animation: loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.loader div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+@keyframes loader {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    4.9% {
+        opacity: 1;
+        transform: scale(.25);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
