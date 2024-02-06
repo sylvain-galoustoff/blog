@@ -6,7 +6,6 @@ html,
 body,
 #root,
 #app {
-	@include dev;
 	height: 100%;
 }
 
@@ -28,7 +27,7 @@ body {
 	height: 80px;
 	display: flex;
 	align-items: center;
-	overflow: hidden;
+	// overflow: hidden;
 	cursor: pointer;
 	@include trans;
 
@@ -41,21 +40,76 @@ body {
 #menu-button-icons {
 	display: flex;
 	gap: 10px;
-	transform: translateX(0);
+	transform: translateX(-54%);
+	@include trans;
 
 	&.close {
-		transform: translateX(-54%)
+		transform: translateX(0)
 	}
+
+	svg {
+		color: $background;
+		@include trans;
+
+		&.fade-out {
+			opacity: 0;
+		}
+	}
+}
+
+#app {
+	display: flex;
 }
 
 #menu {
 	background-color: $accent;
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
+	color: $background;
 	z-index: 10;
-	padding: $marge*5;
+	padding-top: $marge*20;
+	width: auto;
+	max-width: 0;
+	@include trans();
+
+	&.open {
+		max-width: 100%;
+	}
+}
+
+#menu-nav-links {
+	display: flex;
+	flex-direction: column;
+	gap: $marge*3;
+	padding: 0 $marge*7;
+	opacity: 0;
+	transform: translateX(-50%);
+	@include trans;
+
+	&.open {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.nav-link {
+	text-decoration: none;
+	color: $background;
+	font-size: 2.5rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	opacity: .5;
+	@include trans;
+
+	&.active {
+		opacity: 1;
+	}
+
+}
+
+.page {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @import "responsive.scss";
