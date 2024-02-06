@@ -1,26 +1,14 @@
-import Header from "./Header"
-import { useRouteError } from "react-router-dom"
+import { useRouteError } from "react-router-dom";
 
 function App() {
+  const error = useRouteError();
 
-    const error = useRouteError()
-
-	return (
-		<>
-			<div id="app">
-
-				<Header />
-
-				<div className="content container">
-					<h1>Une erreur inattendue s'est produite</h1>
-                    <p className="help">{ error.statusText || error.message }</p>
-				</div>
-				
-				<div id="background"></div>
-			</div>
-		</>
-	)
-
+  return (
+    <div id="app">
+      <h1>Une erreur inattendue s&apos;est produite</h1>
+      <p className="help">{error.message || error.statusText}</p>
+    </div>
+  );
 }
 
-export default App
+export default App;

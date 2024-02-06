@@ -1,39 +1,15 @@
-$light: #fff;
-$darken: rgba(black, 20%);
+$accent: #E06C6C;
+$text: #FFFFFF;
+$background: #131313;
+$bgCard: #1A1A1A;
+$border: #242424;
 
 $marge: 8px;
 
-$corner: 4px;
-
-@mixin dev( $color: white, $width: 1px ) {
+@mixin dev($color: red, $width: 1px) {
     border: $width solid $color;
 }
 
-@mixin trans($speed: .15s) {
-    transition: all $speed ease-out;
-}
-
-@mixin scrollbars(
-    $size: 10px,
-    $foreground-color: rgba(black, .25),
-    $background-color: red) {
-
-    // For Chrome & Safari
-    &::-webkit-scrollbar {
-        width: $size;
-        height: $size;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: $corner;
-        background: $foreground-color;
-        
-        &:hover {
-            background: rgba(black, .5);
-        }
-    }
-
-    // Standard version (Firefox only for now)
-    scrollbar-color: $foreground-color $background-color;
-
+@mixin trans($time: 300ms) {
+    transition: all $time cubic-bezier(.61, .11, .29, .96);
 }
