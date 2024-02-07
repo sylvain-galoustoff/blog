@@ -43,7 +43,11 @@ function Demo() {
   }
 
   if (data) {
-    return <h1>Single demo data loaded</h1>;
+    return (
+      <div className="page">
+        <h1>Single demo data loaded</h1>;
+      </div>
+    );
   } else {
     return <Loader />;
   }

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
-import { motion } from "framer-motion";
 import { apiUrl } from "../../config";
 
 function Contact() {
@@ -117,7 +116,7 @@ function Contact() {
   };
 
   return (
-    <form onSubmit={submitForm}>
+    <form className="page" onSubmit={submitForm}>
       <h1>Contact</h1>
       <div className="form-group-inline">
         <div className="form-group">

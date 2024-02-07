@@ -1,9 +1,17 @@
+import { useSetRecoilState } from "recoil";
+import loadedState from "../../recoil/loadedState";
+import { useEffect } from "react";
+
 function Home() {
-  return (
-    <div className="page" id="home">
-      <h1>HOME</h1>
-    </div>
-  );
+  const setDataLoaded = useSetRecoilState(loadedState);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDataLoaded(true);
+    }, 2000);
+  });
+
+  return <div className="page" id="home"></div>;
 }
 
 export default Home;

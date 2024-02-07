@@ -11,6 +11,7 @@ import Demos from "./components/demos/Demos";
 import Demo from "./components/demos/Demo";
 import Contact from "./components/contact/Contact";
 import About from "./components/about/About";
+import { RecoilRoot } from "recoil";
 
 WebFont.load({
   google: {
@@ -50,6 +51,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
   </React.StrictMode>
 );

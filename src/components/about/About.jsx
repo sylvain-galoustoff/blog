@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { apiUrl } from "../../config";
-import { motion } from "framer-motion";
-import Loader from "../Loader";
 
 function About() {
   const [data, setData] = useState();
@@ -23,11 +21,11 @@ function About() {
     loadData();
   }, []);
 
-  if (data) {
-    return <h1>About</h1>;
-  } else {
-    return <Loader />;
-  }
+  return (
+    <div className="page">
+      <h1>ABOUT</h1>
+    </div>
+  );
 }
 
 export default About;

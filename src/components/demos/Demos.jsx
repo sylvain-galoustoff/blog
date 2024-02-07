@@ -24,7 +24,11 @@ function Demos() {
     <DemoCard key={key} data={data[key]} delay={key} />
   ));
 
-  return <h1>DEMOS</h1>;
+  return (
+    <div className="page">
+      <h1>DEMOS</h1>
+    </div>
+  );
 }
 
 export default Demos;

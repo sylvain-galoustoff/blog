@@ -1,12 +1,12 @@
-function Loader(props) {
-    return (
-        <div className="loader-wrapper">
-            <div className="loader">
-                <div/>
-                <div/>
-            </div>
-        </div>
-    );
+import { useRecoilValue } from "recoil";
+import loadedState from "../recoil/loadedState";
+
+function Loader() {
+  const dataLoaded = useRecoilValue(loadedState);
+
+  return (
+    <div className={dataLoaded ? "out" : undefined} id="loader-container"></div>
+  );
 }
 
-export default Loader
+export default Loader;
