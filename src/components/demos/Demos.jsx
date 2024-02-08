@@ -25,8 +25,9 @@ function Demos() {
   ));
 
   return (
-    <div className="page">
-      <h1>DEMOS</h1>
+    <div className="page" id="demos">
+      <h1>Démos</h1>
+      {demoList}
     </div>
   );
 }

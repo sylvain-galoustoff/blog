@@ -5,6 +5,7 @@ $bgCard: #1A1A1A;
 $border: #242424;
 
 $marge: 8px;
+$borderRadius: 4px;
 
 @mixin dev($color: red, $width: 1px) {
     border: $width solid $color;
@@ -13,3 +14,5 @@ $marge: 8px;
 @mixin trans($time: 300ms) {
     transition: all $time cubic-bezier(.61, .11, .29, .96);
 }
+
+$enterTime: .5s;

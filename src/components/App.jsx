@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useOutlet } from "react-router-dom";
+import { useLocation, useOutlet } from "react-router-dom";
 import Menu from "./Menu";
 import MenuButton from "./MenuButton";
 import { useState } from "react";
@@ -35,7 +35,9 @@ function App() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="route-animation-wrapper"
+            className={`route-animation-wrapper ${
+              location.pathname.split("/")[1]
+            }`}
           >
             <AnimatedOutlet />
           </motion.div>
