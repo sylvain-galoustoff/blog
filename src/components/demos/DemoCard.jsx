@@ -6,7 +6,7 @@ import {
   IoLogoFirebase,
   IoLogoWordpress,
   IoLogoFigma,
-  IoDesktopOutline,
+  IoAddCircle,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
@@ -56,7 +56,7 @@ function DemoCard({ data }) {
         </div>
       </div>
       <Link to={`/demos/${data.slug}`} className="demo-card-button">
-        <IoDesktopOutline /> Détails
+        <IoAddCircle /> Détails
       </Link>
     </div>
   );

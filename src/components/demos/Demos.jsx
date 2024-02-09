@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { apiUrl } from "../../config";
 import DemoCard from "./DemoCard";
+import DemoCardPlaceholder from "./DemoCardPlaceholder";
 
 function Demos() {
   const [data, setData] = useState([]);
+  const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -27,6 +29,8 @@ function Demos() {
   return (
     <div className="page" id="demos">
       <h1>Démos</h1>
+      {/* {pageLoaded ? demoList : <DemoCardPlaceholder />} */}
+      <DemoCardPlaceholder />
       {demoList}
     </div>
   );

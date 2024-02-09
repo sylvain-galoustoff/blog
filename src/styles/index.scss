@@ -227,14 +227,17 @@ body {
 
 	4% {
 		opacity: 1;
+		transform: scale(1);
 	}
 
 	8% {
 		opacity: 0;
+		transform: scale(1.1);
 	}
 
 	12% {
 		opacity: 1;
+		transform: scale(1);
 	}
 
 	to {
@@ -269,6 +272,9 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 
+	&.placeholder {
+		height: 82px;
+	}
 }
 
 .demo-card-thumbnail {
@@ -276,18 +282,23 @@ body {
 	border: 5px solid $border;
 	border-radius: $borderRadius;
 	position: relative;
+	height: 653px;
+	height: 379px;
 
 	img {
 		display: block;
 		width: 100%;
 		height: auto;
 	}
+
 }
 
 .demo-card-technos {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	width: 400px;
+	height: 57px;
 	background-color: $border;
 	border-top-right-radius: $borderRadius;
 	display: flex;
@@ -308,14 +319,24 @@ body {
 
 .demo-card-button {
 	text-decoration: none;
+	font-size: 1.5rem;
 	color: $text;
+	font-weight: 700;
 	background-color: $bgCard;
 	border: 5px solid $border;
+	border-radius: $borderRadius;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: calc($marge/2);
+	gap: $marge;
+	height: 72px;
 	padding: $marge*2;
+	@include trans;
+
+	&:hover {
+		color: $accent;
+		border-color: $accent;
+	}
 }
 
 
