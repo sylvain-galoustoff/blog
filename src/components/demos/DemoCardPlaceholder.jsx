@@ -1,13 +1,20 @@
 function DemoCardPlaceholder() {
   return (
-    <div className="demo-card">
-      <h2 className="demo-card-title placeholder"></h2>
-      <div className="demo-card-thumbnail placeholder">
-        <div className="demo-card-technos"></div>
-      </div>
-      <div className="demo-card-button">Détails</div>
-    </div>
+    <>
+      <FakeCard />
+      <FakeCard />
+    </>
   );
 }
 
 export default DemoCardPlaceholder;
+
+function FakeCard() {
+  return (
+    <div className="demo-card fake-card">
+      <h2 className="demo-card-title placeholder"></h2>
+      <div className="demo-card-thumbnail placeholder"></div>
+      <div className="demo-card-button placeholder"></div>
+    </div>
+  );
+}

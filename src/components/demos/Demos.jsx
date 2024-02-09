@@ -8,6 +8,12 @@ function Demos() {
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
+    setTimeout(() => {
+      setPageLoaded(true);
+    }, 1000);
+  });
+
+  useEffect(() => {
     async function loadData() {
       const response = await fetch(apiUrl + "demos");
 
@@ -29,9 +35,7 @@ function Demos() {
   return (
     <div className="page" id="demos">
       <h1>Démos</h1>
-      {/* {pageLoaded ? demoList : <DemoCardPlaceholder />} */}
-      <DemoCardPlaceholder />
-      {demoList}
+      {pageLoaded && data ? demoList : <DemoCardPlaceholder />}
     </div>
   );
 }

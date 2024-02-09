@@ -7,10 +7,11 @@ import {
   IoLogoWordpress,
   IoLogoFigma,
   IoAddCircle,
+  IoDesktopOutline,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-function DemoCard({ data }) {
+function DemoCard({ data, delay }) {
   const [imgSrc, setImgSrc] = useState(null);
 
   useEffect(() => {
@@ -41,12 +42,18 @@ function DemoCard({ data }) {
   ));
 
   return (
-    <div className="demo-card">
+    <div
+      className="demo-card no-fake"
+      style={{ animationDelay: `${delay / 10}s` }}
+    >
       <h2 className="demo-card-title">{data.title}</h2>
-      <div className="demo-card-thumbnail">
-        <a href={data.demo_link} target="_blanck">
-          <img src={imgSrc} alt={`screenshot de la démo de ${data.title}`} />
-        </a>
+      <a className="demo-card-thumbnail" href={data.demo_link} target="_blanck">
+        <div className="demo-card-voir-demo">
+          <IoDesktopOutline />
+          <p>Voir la démo</p>
+        </div>
+
+        <img src={imgSrc} alt={`screenshot de la démo de ${data.title}`} />
         <div className="demo-card-technos">
           <p className="techno">
             <IoLogoFigma />
@@ -54,7 +61,7 @@ function DemoCard({ data }) {
           </p>
           {techIcons}
         </div>
-      </div>
+      </a>
       <Link to={`/demos/${data.slug}`} className="demo-card-button">
         <IoAddCircle /> Détails
       </Link>

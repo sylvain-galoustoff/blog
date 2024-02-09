@@ -251,6 +251,16 @@ body {
 	flex-direction: column;
 	align-items: center;
 	gap: $marge*4;
+
+	.fake-card:nth-child(2) {
+		transform: translateX(50%);
+		animation: entering $enterTime ease-out forwards;
+	}
+
+	.fake-card:nth-child(3) {
+		transform: translateX(100%);
+		animation: entering $enterTime ease-out forwards;
+	}
 }
 
 .demo-card {
@@ -258,9 +268,54 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: $marge;
+
+	.placeholder {
+		position: relative;
+	}
+
+	.placeholder:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20%;
+		height: 100%;
+		background: linear-gradient(to left, rgba($border, 0), rgba($border, 70%), rgba($border, 0));
+		animation: placeholderGradient 2s linear infinite;
+	}
+
+	&.no-fake {
+		opacity: 0;
+		animation: cardAppear .5s ease-out forwards;
+	}
+}
+
+@keyframes placeholderGradient {
+	from {
+		transform: translateX(-100%);
+	}
+
+	70% {
+		transform: translateX(500%);
+	}
+
+	100% {
+		transform: translateX(500%);
+	}
+}
+
+@keyframes cardAppear {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .demo-card-title {
+	overflow: hidden;
 	background-color: $bgCard;
 	padding: $marge*2;
 	border: 5px solid $border;
@@ -274,16 +329,20 @@ body {
 
 	&.placeholder {
 		height: 82px;
+		transform: translateX(40%);
+		animation: entering $enterTime ease-out forwards;
 	}
 }
 
 .demo-card-thumbnail {
+	overflow: hidden;
 	background-color: $bgCard;
 	border: 5px solid $border;
 	border-radius: $borderRadius;
 	position: relative;
 	height: 653px;
 	height: 379px;
+	@include trans;
 
 	img {
 		display: block;
@@ -291,6 +350,47 @@ body {
 		height: auto;
 	}
 
+	&.placeholder {
+		transform: translateX(80%);
+		animation: entering $enterTime ease-out forwards;
+	}
+
+	&:hover {
+		border-color: $accent;
+
+		.demo-card-voir-demo {
+			transform: translateY(0);
+			background-color: $accent;
+		}
+
+		.demo-card-technos {
+			background-color: $accent;
+		}
+	}
+
+}
+
+.demo-card-voir-demo {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	padding: $marge*2;
+	gap: $marge;
+	align-items: center;
+	justify-content: center;
+	background-color: $border;
+	border-bottom-left-radius: $borderRadius;
+	transform: translateY(-100%);
+	@include trans;
+
+	p {
+		font-weight: 700;
+	}
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
 .demo-card-technos {
@@ -305,6 +405,7 @@ body {
 	align-items: center;
 	gap: $marge*2;
 	padding: $marge*2;
+	@include trans;
 
 	svg {
 		font-size: 1.25rem;
@@ -318,6 +419,7 @@ body {
 }
 
 .demo-card-button {
+	overflow: hidden;
 	text-decoration: none;
 	font-size: 1.5rem;
 	color: $text;
@@ -336,6 +438,11 @@ body {
 	&:hover {
 		color: $accent;
 		border-color: $accent;
+	}
+
+	&.placeholder {
+		transform: translateX(120%);
+		animation: entering $enterTime ease-out forwards;
 	}
 }
 
