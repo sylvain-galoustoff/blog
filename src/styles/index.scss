@@ -329,37 +329,12 @@ body {
 	overflow: hidden;
 	background-color: $bgCard;
 	position: relative;
-	height: 653px;
-	height: 379px;
 	@include trans;
 
 	img {
 		display: block;
 		width: 100%;
 		height: auto;
-	}
-}
-
-.demo-card-voir-demo {
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: flex;
-	padding: $marge*2;
-	gap: $marge;
-	align-items: center;
-	justify-content: center;
-	background-color: $border;
-	border-bottom-left-radius: $borderRadius;
-	transform: translateY(-100%);
-	@include trans;
-
-	p {
-		font-weight: 700;
-	}
-
-	&:hover {
-		opacity: 1;
 	}
 }
 
@@ -387,29 +362,5 @@ body {
 	align-items: center;
 	gap: calc($marge/2);
 }
-
-.demo-card-button {
-	overflow: hidden;
-	text-decoration: none;
-	font-size: 1.5rem;
-	color: $text;
-	font-weight: 700;
-	background-color: $bgCard;
-	border: 5px solid $border;
-	border-radius: $borderRadius;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: $marge;
-	height: 72px;
-	padding: $marge*2;
-	@include trans;
-
-	&:hover {
-		color: $accent;
-		border-color: $accent;
-	}
-}
-
 
 @import "responsive.scss";

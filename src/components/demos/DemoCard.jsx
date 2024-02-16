@@ -48,11 +48,6 @@ function DemoCard({ data, delay }) {
     >
       <h2 className="demo-card-title">{data.title}</h2>
       <div className="demo-card-thumbnail">
-        <div className="demo-card-voir-demo">
-          <IoDesktopOutline />
-          <p>Voir la démo</p>
-        </div>
-
         <img src={imgSrc} alt={`screenshot de la démo ${data.title}`} />
         <div className="demo-card-technos">
           <p className="techno">
