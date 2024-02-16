@@ -9,6 +9,8 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
+/* TYPO */
+
 a {
   color: $text;
 }
@@ -18,4 +20,15 @@ h1 {
   font-weight: 900;
   color: $accent;
   text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* UTILITIES */
+.display-none {
+  display: none;
 }

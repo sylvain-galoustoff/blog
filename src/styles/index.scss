@@ -140,13 +140,9 @@ body {
 
 	h1 {
 		font-size: 5rem;
-		height: 80px;
 		width: 100%;
-		padding: $marge*5 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		background-color: $background;
+		margin-top: -10px;
 	}
 }
 
@@ -361,6 +357,43 @@ body {
 	display: flex;
 	align-items: center;
 	gap: calc($marge/2);
+}
+
+/* ARTICLE */
+#article {
+	display: flex;
+	flex-direction: column;
+	gap: $marge*4;
+	align-items: center;
+
+	h1 {
+		transform: translateX(200px);
+		animation: cardAppear $enterTime ease-out forwards;
+	}
+
+	.demo-card-thumbnail {
+		border: 5px solid $border;
+		border-radius: $borderRadius;
+		transform: translateX(400px);
+		animation: cardAppear $enterTime ease-out forwards;
+	}
+}
+
+#article-content {
+	overflow: hidden;
+	transform-origin: top;
+	transform: translateX(600px);
+	animation: cardAppear $enterTime ease-out forwards;
+	line-height: 1.5;
+
+	.wp-block-heading {
+		margin-top: $marge*8;
+		color: $accent;
+	}
+
+	p {
+		margin-bottom: $marge*2;
+	}
 }
 
 @import "responsive.scss";

@@ -1,5 +1,5 @@
-// $accent: #E06C6C;
-$accent: #DE773C;
+$accent: #E06C6C;
+// $accent: #DE773C;
 // $accent: #D6B130;
 // $accent: #65D630;
 // $accent: #30AED6;
@@ -12,15 +12,17 @@ $border: #242424;
 $marge: 8px;
 $borderRadius: 4px;
 
+$enterTime: .5s;
+$transitionTiming : 300ms;
+
 @mixin dev($color: red, $width: 1px) {
     border: $width solid $color;
 }
 
-@mixin trans($time: 300ms) {
+@mixin trans($time: $transitionTiming) {
     transition: all $time cubic-bezier(.61, .11, .29, .96);
 }
 
-$enterTime: .5s;
 
 /* SCROLLBAR */
 @mixin scrollbars($size: 10px,

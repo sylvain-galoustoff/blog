@@ -6,7 +6,6 @@ import {
   IoLogoFirebase,
   IoLogoWordpress,
   IoLogoFigma,
-  IoDesktopOutline,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 

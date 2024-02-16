@@ -4,16 +4,17 @@ import {
   IoLogoLaravel,
   IoLogoFirebase,
   IoLogoWordpress,
+  IoLogoFigma,
 } from "react-icons/io5";
 import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import { apiUrl } from "../../config";
-import Lightbox from "../Lightbox";
 import Loader from "../Loader";
 
 function Demo() {
-  const params = useParams();
+  const { slug } = useParams();
   const [data, setData] = useState();
+  const [pageLoaded, setPageLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState(null);
 
   const logos = {
     Firebase: <IoLogoFirebase key={"firebase"} />,
@@ -22,9 +23,28 @@ function Demo() {
     WordPress: <IoLogoWordpress key={"wordpress"} />,
   };
 
+  const stack = {
+    Firebase: <span key={"stack-firebase-" + slug}>Back-end</span>,
+    React: <span key={"stack-react-" + slug}>Front-end</span>,
+    Laravel: <span key={"stack-laravel-" + slug}>Back-end</span>,
+    WordPress: <span key={"stack-wordpress-" + slug}>Back-end</span>,
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPageLoaded(true);
+    }, 4500);
+  });
+
+  useEffect(() => {
+    import(`../../assets/${slug}.png`).then((image) => {
+      setImgSrc(image.default);
+    });
+  }, [slug]);
+
   useEffect(() => {
     async function loadData() {
-      const response = await fetch(apiUrl + "demos/" + params.slug);
+      const response = await fetch(apiUrl + "demos/" + slug);
 
       if (!response.ok) {
         console.error("Erreur de requête vers la route " + apiUrl + "demos");
@@ -35,22 +55,47 @@ function Demo() {
     }
 
     loadData();
-  }, [params]);
+  }, [slug]);
 
   let techIcons;
   if (data) {
-    techIcons = Object.keys(data.tags).map((key) => logos[data.tags[key]]);
+    techIcons = Object.keys(data.tags).map((key) => (
+      <p key={key} className="techno">
+        {logos[data.tags[key]]}
+        {stack[data.tags[key]]}
+      </p>
+    ));
   }
 
-  if (data) {
+  const Article = () => {
     return (
-      <div className="page">
-        <h1>Single demo data loaded</h1>;
+      <div id="article">
+        <h1>{data.title}</h1>
+
+        <div className="demo-card-thumbnail">
+          <img src={imgSrc} alt={`screenshot de la démo ${data.title}`} />
+          <div className="demo-card-technos">
+            <p className="techno">
+              <IoLogoFigma />
+              <span>Design</span>
+            </p>
+            {techIcons}
+          </div>
+        </div>
+
+        <div
+          id="article-content"
+          dangerouslySetInnerHTML={{ __html: data.content }}
+        />
       </div>
     );
-  } else {
-    return <Loader />;
-  }
+  };
+
+  return (
+    <div className="page" id="demo">
+      {pageLoaded && data ? <Article /> : <Loader />}
+    </div>
+  );
 }
 
 export default Demo;
