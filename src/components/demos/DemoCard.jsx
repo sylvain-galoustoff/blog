@@ -46,7 +46,9 @@ function DemoCard({ data, delay }) {
       className="demo-card no-fake"
       style={{ animationDelay: `${delay / 10}s` }}
     >
-      <h2 className="demo-card-title">{data.title}</h2>
+      <h2 className="demo-card-title">
+        <Link to={`/demos/${data.slug}`}>{data.title}</Link>
+      </h2>
       <a className="demo-card-thumbnail" href={data.demo_link} target="_blanck">
         <div className="demo-card-voir-demo">
           <IoDesktopOutline />
@@ -62,9 +64,6 @@ function DemoCard({ data, delay }) {
           {techIcons}
         </div>
       </a>
-      <Link to={`/demos/${data.slug}`} className="demo-card-button">
-        <IoAddCircle /> Détails
-      </Link>
     </div>
   );
 }
