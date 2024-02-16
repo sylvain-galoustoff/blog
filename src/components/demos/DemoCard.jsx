@@ -6,7 +6,6 @@ import {
   IoLogoFirebase,
   IoLogoWordpress,
   IoLogoFigma,
-  IoAddCircle,
   IoDesktopOutline,
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -42,20 +41,19 @@ function DemoCard({ data, delay }) {
   ));
 
   return (
-    <div
-      className="demo-card no-fake"
+    <Link
+      to={`/demos/${data.slug}`}
+      className="demo-card"
       style={{ animationDelay: `${delay / 10}s` }}
     >
-      <h2 className="demo-card-title">
-        <Link to={`/demos/${data.slug}`}>{data.title}</Link>
-      </h2>
-      <a className="demo-card-thumbnail" href={data.demo_link} target="_blanck">
+      <h2 className="demo-card-title">{data.title}</h2>
+      <div className="demo-card-thumbnail">
         <div className="demo-card-voir-demo">
           <IoDesktopOutline />
           <p>Voir la démo</p>
         </div>
 
-        <img src={imgSrc} alt={`screenshot de la démo de ${data.title}`} />
+        <img src={imgSrc} alt={`screenshot de la démo ${data.title}`} />
         <div className="demo-card-technos">
           <p className="techno">
             <IoLogoFigma />
@@ -63,8 +61,8 @@ function DemoCard({ data, delay }) {
           </p>
           {techIcons}
         </div>
-      </a>
-    </div>
+      </div>
+    </Link>
   );
 }
 

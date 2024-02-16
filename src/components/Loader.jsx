@@ -1,11 +1,16 @@
-import { useRecoilValue } from "recoil";
-import loadedState from "../recoil/loadedState";
-
 function Loader() {
-  const dataLoaded = useRecoilValue(loadedState);
-
   return (
-    <div className={dataLoaded ? "out" : undefined} id="loader-container"></div>
+    <div className="loader">
+      <div className="square"></div>
+      <div className="square"></div>
+      <div className="square last"></div>
+      <div className="square clear"></div>
+      <div className="square"></div>
+      <div className="square last"></div>
+      <div className="square clear"></div>
+      <div className="square "></div>
+      <div className="square last"></div>
+    </div>
   );
 }
 

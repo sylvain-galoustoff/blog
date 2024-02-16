@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiUrl } from "../../config";
 import DemoCard from "./DemoCard";
-import DemoCardPlaceholder from "./DemoCardPlaceholder";
+import Loader from "../Loader";
 
 function Demos() {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ function Demos() {
   useEffect(() => {
     setTimeout(() => {
       setPageLoaded(true);
-    }, 1000);
+    }, 4500);
   });
 
   useEffect(() => {
@@ -34,8 +34,11 @@ function Demos() {
 
   return (
     <div className="page" id="demos">
-      <h1>Démos</h1>
-      {pageLoaded && data ? demoList : <DemoCardPlaceholder />}
+      <div className="page-tiltle-wrapper">
+        <h1>Démos</h1>
+        {!pageLoaded && !data && <p className="chargement">Chargement...</p>}
+      </div>
+      {pageLoaded && data ? demoList : <Loader />}
     </div>
   );
 }
