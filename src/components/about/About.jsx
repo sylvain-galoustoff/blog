@@ -1,26 +1,17 @@
 import { useState, useEffect } from "react";
-import { apiUrl } from "../../config";
 import Loader from "../Loader";
+import { getAboutPage } from "../../services/wpRestApi";
 
 function About() {
   const [data, setData] = useState();
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
-    async function loadData() {
-      const response = await fetch(apiUrl + "page/about");
-
-      if (!response.ok) {
-        console.error(
-          "Erreur de requête vers la route " + apiUrl + "page/about"
-        );
-      } else {
-        const about = await response.json();
-        setData(about);
-      }
-    }
-
-    loadData();
+    const fetchData = async () => {
+      const about = await getAboutPage();
+      setData(about);
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -34,10 +25,7 @@ function About() {
       <div id="article">
         <h1>{data.title}</h1>
 
-        <div
-          id="article-content"
-          dangerouslySetInnerHTML={{ __html: data.content }}
-        />
+        <div id="article-content" dangerouslySetInnerHTML={{ __html: data.content }} />
       </div>
     );
   };

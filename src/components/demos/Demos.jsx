@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DemoCard from "./DemoCard";
 import Loader from "../Loader";
-import { loadData } from "../../services/wpRestApi";
+import { getAllDemos } from "../../services/wpRestApi";
 
 function Demos() {
   const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ function Demos() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const demos = await loadData();
+      const demos = await getAllDemos();
       setData(demos);
     };
     fetchData();

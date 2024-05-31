@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import {
-  IoLogoReact,
-  IoLogoLaravel,
-  IoLogoFirebase,
-  IoLogoWordpress,
-  IoLogoFigma,
-} from "react-icons/io5";
+import { IoLogoReact, IoLogoLaravel, IoLogoFirebase, IoLogoWordpress, IoLogoFigma } from "react-icons/io5";
 import { useParams } from "react-router-dom";
-import { apiUrl } from "../../config";
 import Loader from "../Loader";
+import { getOneDemo } from "../../services/wpRestApi";
 
 function Demo() {
   const { slug } = useParams();
@@ -43,18 +37,12 @@ function Demo() {
   }, [slug]);
 
   useEffect(() => {
-    async function loadData() {
-      const response = await fetch(apiUrl + "demos/" + slug);
-
-      if (!response.ok) {
-        console.error("Erreur de requête vers la route " + apiUrl + "demos");
-      } else {
-        const result = await response.json();
-        setData(result);
-      }
-    }
-
-    loadData();
+    const fetchData = async () => {
+      const demo = await getOneDemo(slug);
+      console.log(demo);
+      setData(demo);
+    };
+    fetchData();
   }, [slug]);
 
   let techIcons;
@@ -83,10 +71,7 @@ function Demo() {
           </div>
         </div>
 
-        <div
-          id="article-content"
-          dangerouslySetInnerHTML={{ __html: data.content }}
-        />
+        <div id="article-content" dangerouslySetInnerHTML={{ __html: data.content }} />
       </div>
     );
   };
