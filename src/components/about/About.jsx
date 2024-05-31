@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { apiUrl } from "../../config";
+import Loader from "../Loader";
 
 function About() {
   const [data, setData] = useState();
+  const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -21,9 +23,28 @@ function About() {
     loadData();
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setPageLoaded(true);
+    }, 4500);
+  });
+
+  const Article = () => {
+    return (
+      <div id="article">
+        <h1>{data.title}</h1>
+
+        <div
+          id="article-content"
+          dangerouslySetInnerHTML={{ __html: data.content }}
+        />
+      </div>
+    );
+  };
+
   return (
-    <div className="page">
-      <h1>ABOUT</h1>
+    <div className="page" id="about">
+      {pageLoaded && data ? <Article /> : <Loader />}
     </div>
   );
 }

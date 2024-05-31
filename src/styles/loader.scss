@@ -44,8 +44,8 @@ $topenter: -50px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: - $loaderw / 2;
-  margin-top: - $loaderh / 2;
+  margin-left: calc(-1 * $loaderw / 2);
+  margin-top: calc(-1 * $loaderh / 2);
   transform: rotate(90deg);
 }
 

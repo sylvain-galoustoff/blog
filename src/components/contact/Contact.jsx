@@ -23,6 +23,7 @@ function Contact() {
 
     setForm(newForm);
     validate(target, e.target.value);
+    setSendMessage("");
   };
 
   const validate = (target, value) => {
@@ -83,6 +84,7 @@ function Contact() {
   const submitForm = async (e) => {
     e.preventDefault();
     setSendMessage("Envoi en cours...");
+    console.log(validator(validation));
 
     if (validator(validation)) {
       const options = {
@@ -112,6 +114,16 @@ function Contact() {
       } else {
         setSendMessage("Une erreur est survenue :(");
       }
+    } else {
+      for (const key in form) {
+        setSendMessage("Vérifier les informations saisies");
+        if (form[key] === "") {
+          setValidation((prevState) => ({
+            ...prevState,
+            [key]: false,
+          }));
+        }
+      }
     }
   };
 
@@ -120,9 +132,6 @@ function Contact() {
       <h1>Contact</h1>
       <div className="form-group-inline">
         <div className="form-group">
-          <p className="validator">
-            {validation.name === false && "3 caractères minimum"}
-          </p>
           <input
             type="text"
             name="name"
@@ -131,12 +140,10 @@ function Contact() {
             onChange={(e) => inputChange(e, "name")}
             value={form.name}
           />
+          <p className="validator">{validation.name === false && "3 caractères minimum"}</p>
         </div>
 
         <div className="form-group">
-          <p className="validator">
-            {validation.email === false && "Format d'e-mail non valide"}
-          </p>
           <input
             type="text"
             name="email"
@@ -145,13 +152,11 @@ function Contact() {
             onChange={(e) => inputChange(e, "email")}
             value={form.email}
           />
+          <p className="validator">{validation.email === false && "Format d'e-mail non valide"}</p>
         </div>
       </div>
 
       <div className="form-group">
-        <p className="validator">
-          {validation.message === false && "Le message est vide"}
-        </p>
         <textarea
           rows={10}
           name="message"
@@ -160,9 +165,10 @@ function Contact() {
           onChange={(e) => inputChange(e, "message")}
           value={form.message}
         />
+        <p className="validator">{validation.message === false && "Le message est vide"}</p>
       </div>
 
-      <div className="form-group button-group">
+      <div className="button-group">
         {sendMessage && <p className="help">{sendMessage}</p>}
         <button type="submit" className="icon-before" id="submit-contact">
           <IoSend /> Envoyer

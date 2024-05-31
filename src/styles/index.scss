@@ -7,393 +7,396 @@ html,
 body,
 #root,
 #app {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	background-color: $background;
-	color: $text;
-	overflow: hidden;
+  background-color: $background;
+  color: $text;
+  overflow: hidden;
 
-	@include scrollbars
+  @include scrollbars
 }
 
 #menu-button {
-	font-size: 3rem;
-	background-color: $accent;
-	position: fixed;
-	z-index: 20;
-	top: $marge*5;
-	left: $marge*5;
-	border-radius: 40px;
-	padding: 10px;
-	width: 80px;
-	height: 80px;
-	display: flex;
-	align-items: center;
-	overflow: hidden;
-	cursor: pointer;
-	@include trans;
+  font-size: 3rem;
+  background-color: $accent;
+  position: fixed;
+  z-index: 20;
+  top: $marge*5;
+  left: $marge*5;
+  border-radius: 40px;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  @include trans;
 
-	&:hover {
-		transform: scale(1.1);
-	}
+  &:hover {
+    transform: scale(1.1);
+  }
 
 }
 
 #menu-button-icons {
-	display: flex;
-	gap: 10px;
-	transform: translateX(-54%);
-	@include trans;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-54%);
+  @include trans;
 
-	&.close {
-		transform: translateX(0)
-	}
+  &.close {
+    transform: translateX(0)
+  }
 
-	svg {
-		color: $background;
-		@include trans;
+  svg {
+    color: $background;
+    @include trans;
 
-		&.fade-out {
-			opacity: 0;
-		}
-	}
+    &.fade-out {
+      opacity: 0;
+    }
+  }
 }
 
 #app {
-	display: flex;
+  display: flex;
 }
 
 #menu {
-	background-color: $accent;
-	color: $background;
-	z-index: 10;
-	padding-top: $marge*20;
-	width: auto;
-	max-width: 0;
-	@include trans();
+  background-color: $accent;
+  color: $background;
+  z-index: 10;
+  padding-top: $marge*20;
+  width: auto;
+  max-width: 0;
+  @include trans();
 
-	&.open {
-		@include trans();
-		max-width: 100%;
-	}
+  &.open {
+    @include trans();
+    max-width: 100%;
+  }
 }
 
 #menu-nav-links {
-	display: flex;
-	flex-direction: column;
-	gap: $marge*3;
-	padding: 0 $marge*7;
-	opacity: 0;
-	transform: translateX(-50%);
-	@include trans;
+  display: flex;
+  flex-direction: column;
+  gap: $marge*3;
+  padding: 0 $marge*7;
+  opacity: 0;
+  transform: translateX(-50%);
+  @include trans;
 
-	&.open {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .nav-link {
-	text-decoration: none;
-	color: $background;
-	font-size: 2.5rem;
-	font-weight: 900;
-	text-transform: uppercase;
-	opacity: .5;
-	@include trans;
+  text-decoration: none;
+  color: $background;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  opacity: .5;
+  @include trans;
 
-	&.active,
-	&:hover {
-		opacity: 1;
-	}
+  &.active,
+  &:hover {
+    opacity: 1;
+  }
 
 }
 
 #viewport {
-	position: relative;
-	flex: 1;
+  position: relative;
+  flex: 1;
 }
 
 .route-animation-wrapper {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	&.demos {
-		padding: $marge*5 0;
-		align-items: flex-start;
-		height: 100%;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
+  &.demos,
+  &.about {
+    padding: $marge*5 0;
+    align-items: flex-start;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 .page {
-	width: 663px;
+  width: 663px;
 
-	h1 {
-		font-size: 5rem;
-		width: 100%;
-		background-color: $background;
-		margin-top: -10px;
-	}
+  h1 {
+    font-size: 5rem;
+    width: 100%;
+    background-color: $background;
+    margin-top: -10px;
+  }
 }
 
 /* HOME */
 #title-wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: $marge*2;
+  display: flex;
+  flex-direction: column;
+  gap: $marge*2;
 
 }
 
 #me {
-	text-transform: uppercase;
-	color: $text;
-	font-size: 2rem;
-	letter-spacing: .55rem;
-	font-weight: 900;
-	opacity: .25;
-	padding: 0 12px;
-	transform: translateX(200px);
-	animation: entering $enterTime ease-out forwards;
+  text-transform: uppercase;
+  color: $text;
+  font-size: 2rem;
+  letter-spacing: .55rem;
+  font-weight: 900;
+  opacity: .25;
+  padding: 0 12px;
+  transform: translateX(200px);
+  animation: entering $enterTime ease-out forwards;
 }
 
 @keyframes entering {
-	to {
-		transform: translateX(0);
-	}
+  to {
+    transform: translateX(0);
+  }
 }
 
 #site-title {
-	text-transform: uppercase;
-	display: flex;
-	gap: 8px;
-	align-items: center;
-	font-size: 3rem;
-	font-weight: 900;
-	transform: translateX(400px);
-	animation: entering $enterTime ease-out forwards;
+  text-transform: uppercase;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 900;
+  transform: translateX(400px);
+  animation: entering $enterTime ease-out forwards;
 }
 
 #ui {
-	font-size: 11.5rem;
-	line-height: .73;
-	background: $accent;
-	background: radial-gradient(circle, $accent, rgba($accent, 0) 70%);
-	background-clip: text;
-	text-fill-color: transparent;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-size: 200% 200%;
-	background-repeat: no-repeat;
-	animation: uibg 5s linear infinite;
+  font-size: 11.5rem;
+  line-height: .73;
+  background: $accent;
+  background: radial-gradient(circle, $accent, rgba($accent, 0) 70%);
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 150% 150%;
+  background-repeat: no-repeat;
+  animation: uibg 5s linear infinite;
 }
 
 @keyframes uibg {
-	from {
-		background-position: 0% 0%;
-	}
+  from {
+    background-position: 0% 0%;
+  }
 
-	33% {
-		background-position: 100% 0%;
-	}
+  33% {
+    background-position: 100% 0%;
+  }
 
-	66% {
-		background-position: 0% 100%;
-	}
+  66% {
+    background-position: 0% 100%;
+  }
 
-	to {
-		background-position: 0% 0%;
-	}
+  to {
+    background-position: 0% 0%;
+  }
 }
 
 #definitions {
-	transform: translateX(300px);
-	animation: entering $enterTime ease-out forwards;
+  transform: translateX(300px);
+  animation: entering $enterTime ease-out forwards;
 
-	p {
-		opacity: 1;
-		animation: defanim 5s linear 1s infinite;
-	}
+  p {
+    opacity: 1;
+    animation: defanim 5s linear 1s infinite;
+  }
 
-	p:nth-child(2) {
-		animation-delay: 1.1s;
-	}
+  p:nth-child(2) {
+    animation-delay: 1.1s;
+  }
 
-	p:nth-child(3) {
-		animation-delay: 1.2s;
-	}
+  p:nth-child(3) {
+    animation-delay: 1.2s;
+  }
 }
 
 @keyframes defanim {
-	from {
-		opacity: 1;
-	}
 
-	4% {
-		opacity: 1;
-		transform: scale(1);
-	}
+  0% {
+    transform: scale(1);
+  }
 
-	8% {
-		opacity: 0;
-		transform: scale(1.1);
-	}
+  4% {
+    transform: scale(1.1);
+  }
 
-	12% {
-		opacity: 1;
-		transform: scale(1);
-	}
-
-	to {
-		opacity: 1;
-	}
+  8% {
+    transform: scale(1);
+  }
 }
 
 /* DEMOS */
 #demos {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: $marge*4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $marge*4;
 
-	.demo-card:nth-child(4n-2) {
-		transform: translateX(200px);
-	}
+  .demo-card:nth-child(4n-2) {
+    transform: translateX(200px);
+  }
 
-	.demo-card:nth-child(4n-1) {
-		transform: translateX(400px);
-	}
+  .demo-card:nth-child(4n-1) {
+    transform: translateX(400px);
+  }
 
-	.demo-card:nth-child(4n) {
-		transform: translateX(600px);
-	}
+  .demo-card:nth-child(4n) {
+    transform: translateX(600px);
+  }
 
 }
 
 .demo-card {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	border: 5px solid $border;
-	border-radius: $borderRadius;
-	opacity: 0;
-	text-decoration: none;
-	animation: cardAppear $enterTime ease-out forwards;
-	@include trans;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid $border;
+  border-radius: $borderRadius;
+  opacity: 0;
+  text-decoration: none;
+  animation: cardAppear $enterTime ease-out forwards;
+  @include trans;
 
-	&:hover {
-		border-color: $accent;
+  &:hover {
+    border-color: $accent;
 
-		.demo-card-title,
-		.demo-card-technos {
-			background-color: $accent;
-		}
-	}
+    .demo-card-title,
+    .demo-card-technos {
+      background-color: $accent;
+    }
+  }
 }
 
 @keyframes cardAppear {
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .demo-card-title {
-	width: 100%;
-	overflow: hidden;
-	background-color: $border;
-	text-transform: uppercase;
-	font-weight: 900;
-	font-size: 2rem;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	@include trans;
-	padding: $marge*2;
+  width: 100%;
+  overflow: hidden;
+  background-color: $border;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include trans;
+  padding: $marge*2;
 }
 
 .demo-card-thumbnail {
-	overflow: hidden;
-	background-color: $bgCard;
-	position: relative;
-	@include trans;
+  overflow: hidden;
+  background-color: $bgCard;
+  position: relative;
+  @include trans;
 
-	img {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .demo-card-technos {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 400px;
-	height: 57px;
-	background-color: $border;
-	border-top-right-radius: $borderRadius;
-	display: flex;
-	align-items: center;
-	gap: $marge*2;
-	padding: $marge*2;
-	@include trans;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 57px;
+  background-color: $border;
+  border-top-right-radius: $borderRadius;
+  display: flex;
+  align-items: center;
+  gap: $marge*2;
+  padding: $marge*2;
+  @include trans;
 
-	svg {
-		font-size: 1.25rem;
-	}
+  svg {
+    font-size: 1.25rem;
+  }
 }
 
 .techno {
-	display: flex;
-	align-items: center;
-	gap: calc($marge/2);
+  display: flex;
+  align-items: center;
+  gap: calc($marge/2);
 }
 
 /* ARTICLE */
 #article {
-	display: flex;
-	flex-direction: column;
-	gap: $marge*4;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: $marge*4;
+  align-items: center;
 
-	h1 {
-		transform: translateX(200px);
-		animation: cardAppear $enterTime ease-out forwards;
-	}
+  h1 {
+    transform: translateX(200px);
+    animation: cardAppear $enterTime ease-out forwards;
+  }
 
-	.demo-card-thumbnail {
-		border: 5px solid $border;
-		border-radius: $borderRadius;
-		transform: translateX(400px);
-		animation: cardAppear $enterTime ease-out forwards;
-	}
+  .demo-card-thumbnail {
+    border: 5px solid $border;
+    border-radius: $borderRadius;
+    transform: translateX(400px);
+    animation: cardAppear $enterTime ease-out forwards;
+  }
 }
 
 #article-content {
-	overflow: hidden;
-	transform-origin: top;
-	transform: translateX(600px);
-	animation: cardAppear $enterTime ease-out forwards;
-	line-height: 1.5;
+  overflow: hidden;
+  transform-origin: top;
+  transform: translateX(600px);
+  animation: cardAppear $enterTime ease-out forwards;
+  line-height: 1.5;
 
-	.wp-block-heading {
-		margin-top: $marge*8;
-		color: $accent;
-	}
+  .wp-block-heading {
+    margin-top: $marge*8;
+    color: $accent;
+  }
 
-	p {
-		margin-bottom: $marge*2;
-	}
+  p {
+    margin-bottom: $marge*2;
+  }
+}
+
+/* ABOUT */
+#about {
+  justify-content: flex-start
+}
+
+/* CONTACT */
+.contact {
+  h1 {
+    margin-bottom: calc($marge + $marge + .8rem);
+  }
 }
 
 @import "responsive.scss";

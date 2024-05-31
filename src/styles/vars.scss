@@ -1,7 +1,7 @@
-$accent: #E06C6C;
+// $accent: #E06C6C;
 // $accent: #DE773C;
 // $accent: #D6B130;
-// $accent: #65D630;
+$accent: #65D630;
 // $accent: #30AED6;
 // $accent: #AA30D6;
 $text: #FFFFFF;
@@ -12,37 +12,40 @@ $border: #242424;
 $marge: 8px;
 $borderRadius: 4px;
 
+$font: "Raleway",
+  sans-serif;
+
 $enterTime: .5s;
 $transitionTiming : 300ms;
 
 @mixin dev($color: red, $width: 1px) {
-    border: $width solid $color;
+  border: $width solid $color;
 }
 
 @mixin trans($time: $transitionTiming) {
-    transition: all $time cubic-bezier(.61, .11, .29, .96);
+  transition: all $time cubic-bezier(.61, .11, .29, .96);
 }
 
 
 /* SCROLLBAR */
 @mixin scrollbars($size: 10px,
-    $foreground-color: lighten($background, 5%),
-    $background-color: $background) {
+  $foreground-color: lighten($background, 5%),
+  $background-color: $background) {
 
-    // For Chrome & Safari
-    &::-webkit-scrollbar {
-        width: $size;
-        height: $size;
-    }
+  // For Chrome & Safari
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
 
-    &::-webkit-scrollbar-thumb {
-        background: $foreground-color;
-    }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
 
-    &::-webkit-scrollbar-track {
-        background: $background-color;
-    }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
 
-    // Standard version (Firefox only for now)
-    scrollbar-color: $foreground-color $background-color;
+  // Standard version (Firefox only for now)
+  scrollbar-color: $foreground-color $background-color;
 }

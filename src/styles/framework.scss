@@ -6,7 +6,7 @@
 
 html {
   font-size: 20px;
-  font-family: "Raleway", sans-serif;
+  font-family: $font;
 }
 
 /* TYPO */
@@ -31,4 +31,77 @@ h2 {
 /* UTILITIES */
 .display-none {
   display: none;
+}
+
+/* FORMS */
+.form-group-inline {
+  display: flex;
+  gap: $marge*2;
+
+  &>* {
+    flex: 1;
+  }
+}
+
+.form-group {
+  // margin-bottom: $marge;
+  // @include dev;
+
+  [type="text"],
+  [type="email"],
+  textarea {
+    width: 100%;
+    font-size: 1rem;
+    font-family: $font;
+    color: $background;
+    padding: $marge;
+    border-radius: $borderRadius;
+    border: 2px solid transparent;
+    @include trans;
+
+
+    &:focus,
+    :focus-visible {
+      outline: none;
+      box-shadow: 0 0 6px 3px $accent;
+    }
+  }
+
+  [type="text"],
+  [type="email"] {
+    height: 40px;
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: $marge*2;
+}
+
+.validator {
+  font-size: .8rem;
+  color: #df4d4d;
+  // @include dev;
+  height: calc($marge + $marge + .8rem);
+  display: flex;
+  align-items: center;
+}
+
+/* BUTTON */
+button,
+a.button {
+  font-family: $font;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $marge;
+  border: none;
+  border-radius: $borderRadius;
+  background-color: $accent;
+  color: $text;
+  padding: $marge $marge*4;
+  cursor: pointer;
 }
