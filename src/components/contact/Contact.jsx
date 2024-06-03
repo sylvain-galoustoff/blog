@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
-import { apiUrl } from "../../config";
+import { postContactForm } from "../../services/wpRestApi";
 
 function Contact() {
   const [form, setForm] = useState({
@@ -84,7 +84,6 @@ function Contact() {
   const submitForm = async (e) => {
     e.preventDefault();
     setSendMessage("Envoi en cours...");
-    console.log(validator(validation));
 
     if (validator(validation)) {
       const options = {
@@ -95,16 +94,9 @@ function Contact() {
         body: JSON.stringify(form),
       };
 
-      const response = await fetch(apiUrl + "mail", options);
-      if (!response.ok) {
-        throw new Error("Erreur de requête POST");
-      }
+      const postResult = await postContactForm(options);
 
-      const data = await response.json();
-      console.log(data);
-
-      if (data.mail_sent === true) {
-        console.log("envoyé");
+      if (postResult.mail_sent === true) {
         setSendMessage("Message envoyé ! Je réponds sous 48h.");
         setForm({
           name: "",

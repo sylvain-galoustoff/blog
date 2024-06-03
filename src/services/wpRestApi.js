@@ -44,3 +44,18 @@ export async function getAboutPage() {
     console.error(`Erreur de récupération des données. Endpoint : ${apiUrl}page/about`, error);
   }
 }
+
+export async function postContactForm(options) {
+  try {
+    const response = await fetch(apiUrl + "mail", options);
+
+    if (!response.ok) {
+      throw new Error("Erreur de requête POST");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
