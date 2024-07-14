@@ -74,9 +74,18 @@ body {
   max-width: 0;
   @include trans();
 
+  .nav-link {
+    pointer-events: none
+  }
+
   &.open {
     @include trans();
     max-width: 100%;
+
+    .nav-link {
+      pointer-events: initial;
+    }
+
   }
 }
 
@@ -137,7 +146,9 @@ body {
 }
 
 .page {
-  width: 663px;
+  width: 100%;
+  max-width: 663px;
+  margin: 0 40px;
 
   h1 {
     font-size: 5rem;
@@ -371,6 +382,7 @@ body {
 }
 
 #article-content {
+  max-width: 100%;
   overflow: hidden;
   transform-origin: top;
   transform: translateX(600px);

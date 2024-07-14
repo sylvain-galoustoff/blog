@@ -1,0 +1,82 @@
+@media screen and (max-width: 742px) {
+
+  .page {
+    padding-top: 140px;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  #home {
+    width: 240px;
+    padding: 0;
+  }
+
+  #me {
+    padding: 0;
+    font-size: .85rem;
+    letter-spacing: .14rem;
+  }
+
+  #site-title {
+    flex-direction: column;
+  }
+
+  #ui {
+    font-size: 13rem;
+  }
+
+  #definitions {
+    font-size: 1.9rem;
+  }
+
+  /* DEMOS INDEX */
+  #demos {
+    align-items: flex-start;
+
+    h1 {
+      position: sticky;
+      top: 140px;
+    }
+  }
+
+  .demo-card-title {
+    font-size: 1.25rem;
+  }
+
+  .techno {
+    font-size: .7rem;
+
+    svg {
+      font-size: .9rem;
+    }
+  }
+
+  /* DEMO SINGLE */
+  #article-content {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .demo-card-technos {
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .page {
+    padding: 140px 40px 0;
+  }
+
+  #about {
+    padding: 140px 0;
+  }
+}
