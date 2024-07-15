@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoLogoReact, IoLogoLaravel, IoLogoFirebase, IoLogoWordpress, IoLogoFigma } from "react-icons/io5";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loader from "../Loader";
 import { getOneDemo } from "../../services/wpRestApi";
 
@@ -39,7 +39,6 @@ function Demo() {
   useEffect(() => {
     const fetchData = async () => {
       const demo = await getOneDemo(slug);
-      console.log(demo);
       setData(demo);
     };
     fetchData();
@@ -69,6 +68,9 @@ function Demo() {
             </p>
             {techIcons}
           </div>
+          <a href={data.lien_vers_la_demo} className="demo-link" target="_blank">
+            Voir la demo
+          </a>
         </div>
 
         <div id="article-content" dangerouslySetInnerHTML={{ __html: data.content }} />

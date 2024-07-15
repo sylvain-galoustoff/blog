@@ -1,12 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import {
-  IoLogoReact,
-  IoLogoLaravel,
-  IoLogoFirebase,
-  IoLogoWordpress,
-  IoLogoFigma,
-} from "react-icons/io5";
+import { IoLogoReact, IoLogoLaravel, IoLogoFirebase, IoLogoWordpress, IoLogoFigma } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 function DemoCard({ data, delay }) {
@@ -40,11 +34,7 @@ function DemoCard({ data, delay }) {
   ));
 
   return (
-    <Link
-      to={`/demos/${data.slug}`}
-      className="demo-card"
-      style={{ animationDelay: `${delay / 10}s` }}
-    >
+    <Link to={`/demos/${data.slug}`} className="demo-card" style={{ animationDelay: `${delay / 10}s` }}>
       <h2 className="demo-card-title">{data.title}</h2>
       <div className="demo-card-thumbnail">
         <img src={imgSrc} alt={`screenshot de la démo ${data.title}`} />

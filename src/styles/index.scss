@@ -324,7 +324,6 @@ body {
 }
 
 .demo-card-thumbnail {
-  overflow: hidden;
   background-color: $bgCard;
   position: relative;
   @include trans;
@@ -378,6 +377,27 @@ body {
     border-radius: $borderRadius;
     transform: translateX(400px);
     animation: cardAppear $enterTime ease-out forwards;
+    margin-bottom: 70px;
+  }
+
+  .demo-link {
+    text-decoration: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(150%);
+    background-color: $accent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: $borderRadius;
+    @include trans;
+
+    &:hover {
+      background-color: lighten($accent, 5%);
+    }
   }
 }
 
